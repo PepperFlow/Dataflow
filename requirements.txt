@@ -1,0 +1,5 @@
+dlt
+duckdb
+pandas
+requests
+streamlit
