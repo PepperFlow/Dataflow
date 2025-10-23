@@ -1,0 +1,14 @@
+# Ignorera Python-cache
+__pycache__/
+*.pyc
+
+# Ignorera databasfiler och loggar
+*.duckdb
+*.db
+*.log
+
+# Ignorera systemfiler
+.DS_Store
+
+# Ignorera virtuella miljöer
+.venv/
