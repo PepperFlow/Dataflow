@@ -11,7 +11,6 @@ def jobtech_source(occupation: str):
         resp.raise_for_status()
         data = resp.json()
         for ad in data.get("hits", []):
-            # hantera att workplace_addresses kan vara lista eller saknas
             municipality = None
             wa = ad.get("workplace_addresses")
             if isinstance(wa, list) and len(wa) > 0:
@@ -31,11 +30,9 @@ if __name__ == "__main__":
         dataset_name="job_ads_dataset"
     )
 
-    occupations = ["data", "hr", "ekonomi"]   # <-- minst 3 yrkesfält enligt krav
+    occupations = ["data", "hr", "ekonomi"]
     for occ in occupations:
         src = jobtech_source(occ)
         pipeline.run(src)
-
-
 
     print("✅ DLT-körning klar. Fil: job_ads_pipeline.duckdb")

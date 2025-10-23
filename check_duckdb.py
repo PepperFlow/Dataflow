@@ -1,38 +1,31 @@
 import duckdb
 import os
 
-# Ange sökvägen till din DuckDB-fil
 db_path = "job_ads_pipeline.duckdb"
-
-# Kontrollera att filen finns
 if not os.path.exists(db_path):
-    print(f"Hittar inte databasen: {db_path}")
-    print("Kör först test_jobtech_api.py för att skapa filen.")
-    exit()
+    print("DuckDB-filen hittades inte:", db_path)
+    raise SystemExit(1)
 
-# Anslut till databasen
 con = duckdb.connect(db_path)
 
-print(f" Ansluten till databasen: {db_path}\n")
+print("\n📂 Scheman i databasen:")
+schemas = con.execute("SELECT schema_name FROM information_schema.schemata").fetchall()
+for s in schemas:
+    print(" -", s[0])
 
-# Visa alla tabeller
-tables = con.execute("SHOW TABLES").fetchall()
+print("\n📊 Tabeller i job_ads_dataset:")
+tables = con.execute("""
+    SELECT table_name
+    FROM information_schema.tables
+    WHERE table_schema = 'job_ads_dataset'
+""").fetchall()
+
 if not tables:
-    print("⚠️  Inga tabeller hittades i databasen.")
-    print("Kör om din pipeline (test_jobtech_api.py) och försök igen.")
+    print("⚠️ Ingen tabell hittades i schemat job_ads_dataset.")
 else:
-    print("📊 Tabeller i databasen:")
-    for t in tables:
-        print("  -", t[0])
-
-    # Visa några rader ur varje tabell
+    print("Tabeller:", tables)
     for t in tables:
         name = t[0]
-        print(f"\n Förhandsgranskning av tabell: {name}")
-        try:
-            df = con.execute(f"SELECT * FROM {name} LIMIT 5").fetchdf()
-            print(df)
-        except Exception as e:
-            print(f"Fel vid läsning av tabell {name}: {e}")
-
-print("\n Klart! Du kan nu se vilka tabeller och data DLT har skapat i DuckDB.")
+        print(f"\n🔹 Förhandsgranskning av {name}:")
+        df = con.execute(f"SELECT * FROM job_ads_dataset.{name} LIMIT 5").fetchdf()
+        print(df)
