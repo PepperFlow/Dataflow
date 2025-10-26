@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: job_ads_pipeline
+    description: Raw data from JobTech API loaded by DLT
+    tables:
+      - name: job_ads_resource
+        description: Job advertisements from JobTech API
+
+models:
+  - name: stg_job_ads
+    description: Staged job ads with cleaned and standardized fields
+    columns:
+      - name: id
+        description: Unique job ad identifier
+        tests:
+          - unique
+          - not_null
