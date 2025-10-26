@@ -3,3 +3,4 @@ duckdb
 pandas
 requests
 streamlit
+dbt-duckdb
