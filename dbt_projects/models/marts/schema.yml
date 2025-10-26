@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_job_ads_hr
+    description: "Rådata för HR-jobb från JobTech API"
+  - name: stg_job_ads_data
+    description: "Rådata för Data-jobb"
+  - name: stg_job_ads_ekonomi
+    description: "Rådata för Ekonomi-jobb"
+  - name: job_summary
+    description: "Sammanställning av antal annonser per yrkesområde och kommun"

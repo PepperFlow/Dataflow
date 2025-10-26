@@ -1,0 +1,16 @@
+name: "job_ads_dbt"
+version: "1.0"
+config-version: 2
+
+profile: "job_ads_dbt"
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target"]
+
+models:
+  job_ads_dbt:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

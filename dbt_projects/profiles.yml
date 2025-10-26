@@ -1,0 +1,7 @@
+job_ads_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../job_ads_pipeline.duckdb
+      threads: 1
