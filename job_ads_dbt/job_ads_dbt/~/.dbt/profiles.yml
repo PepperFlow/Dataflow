@@ -1,0 +1,7 @@
+job_ads_profile:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /Users/pete/Desktop/DataFlow/Dataflow/job_ads_pipeline.duckdb
+      threads: 4
