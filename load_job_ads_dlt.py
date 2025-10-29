@@ -35,4 +35,4 @@ if __name__ == "__main__":
         src = jobtech_source(occ)
         pipeline.run(src)
 
-    print("✅ DLT-körning klar. Fil: job_ads_pipeline.duckdb")
+    print("DLT-körning klar. Fil: job_ads_pipeline.duckdb")
