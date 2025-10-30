@@ -1,4 +1,4 @@
--- Staging: Rensa och strukturera rå data från JobTech API
+--Staging: Rensa och strukturera rå data från JobTech API
 WITH source AS (
     SELECT * FROM {{ source('job_ads_pipeline', 'job_ads_resource') }}
 )
