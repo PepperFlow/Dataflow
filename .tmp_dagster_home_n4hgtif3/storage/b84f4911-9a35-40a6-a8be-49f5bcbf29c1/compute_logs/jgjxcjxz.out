@@ -1,0 +1,24 @@
+--- Startar dbt-transformation (dbt run) ---
+[0m18:53:05  Running with dbt=1.10.13
+[0m18:53:05  Registered adapter: duckdb=1.9.6
+[0m18:53:05  Found 5 models, 3 data tests, 3 sources, 444 macros
+[0m18:53:05  
+[0m18:53:05  Concurrency: 4 threads (target='dev')
+[0m18:53:05  
+[0m18:53:06  1 of 5 START sql view model main.stg_job_ads ................................... [RUN]
+[0m18:53:06  1 of 5 OK created sql view model main.stg_job_ads .............................. [[32mOK[0m in 0.06s]
+[0m18:53:06  2 of 5 START sql view model main.dim_employer .................................. [RUN]
+[0m18:53:06  3 of 5 START sql view model main.dim_location .................................. [RUN]
+[0m18:53:06  4 of 5 START sql view model main.dim_occupation ................................ [RUN]
+[0m18:53:06  3 of 5 OK created sql view model main.dim_location ............................. [[32mOK[0m in 0.10s]
+[0m18:53:06  4 of 5 OK created sql view model main.dim_occupation ........................... [[32mOK[0m in 0.10s]
+[0m18:53:06  2 of 5 OK created sql view model main.dim_employer ............................. [[32mOK[0m in 0.11s]
+[0m18:53:06  5 of 5 START sql view model main.fact_job_ads .................................. [RUN]
+[0m18:53:06  5 of 5 OK created sql view model main.fact_job_ads ............................. [[32mOK[0m in 0.02s]
+[0m18:53:06  
+[0m18:53:06  Finished running 5 view models in 0 hours 0 minutes and 0.30 seconds (0.30s).
+[0m18:53:06  
+[0m18:53:06  [32mCompleted successfully[0m
+[0m18:53:06  
+[0m18:53:06  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=5
+--- dbt-transformation klar ---
