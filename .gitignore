@@ -1,0 +1,19 @@
+# Lokalt/bygg
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+
+# Data & binärt
+*.duckdb
+logs/
+
+# Streamlit cache
+.streamlit/
+
+# YAML / secrets (inte i git)
+streamlit.yaml
+mount.yaml
+mount_full.yaml
