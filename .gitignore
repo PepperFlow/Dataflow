@@ -1,0 +1,6 @@
+# Ignorera temporära filer
+__pycache__/
+*.pyc
+.venv/
+.tmp_dagster_home_*/
+*.duckdb
