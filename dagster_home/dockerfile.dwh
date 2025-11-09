@@ -1,0 +1,19 @@
+# Använd en lämplig basbild, t.ex. Python 3.11
+FROM python:3.11-slim
+
+# Sätt arbetsmappen
+WORKDIR /pipeline
+
+# Kopiera koden för de olika stegen
+COPY data_extract_load/ /pipeline/data_extract_load/
+COPY data_transformation/ /pipeline/data_transformation/
+COPY orchestration/ /pipeline/orchestration/
+
+# Installera nödvändiga Python-paket
+RUN pip install dagster dagster-dbt dagster-dlt dagster-webserver dbt-core dbt-duckdb dlt duckdb 
+
+# Exponera porten för Dagster UI (om du kör den lokalt)
+EXPOSE 3000
+
+# Standardkommandot för att starta Dagster webserver
+CMD ["dagster", "dev", "-f", "orchestration/definitions.py", "-h", "0.0.0.0", "-p", "3000"]
