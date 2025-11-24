@@ -1,10 +1,25 @@
-# Ignorera temporära filer
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
 .venv/
-.tmp_dagster_home_*/
-*.duckdb
-.venv/
-__pycache__/
+venv/
+env/
+
+# Dagster temp directories
+.tmp_dagster_home*/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS junk
+.DS_Store
+
+# Logs
 logs/
-*.duckdb
+
+# DuckDB – OBS! Ignorera INTE
+# (kommenterad rad,

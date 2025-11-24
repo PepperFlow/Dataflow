@@ -1,5 +1,0 @@
---- Startar dbt-transformation (dbt run) ---
-[0m08:37:04  Running with dbt=1.10.13
-[0m08:37:04  Encountered an error:
-Runtime Error
-  Could not find profile named 'job_ads_profile'
