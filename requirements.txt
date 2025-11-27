@@ -65,7 +65,7 @@ more-itertools==10.8.0
 msgpack==1.1.2
 multidict==6.7.0
 narwhals==2.9.0
-networkx==3.5
+networkx==3.4.2
 numpy==2.3.4
 orderly-set==5.5.0
 orjson==3.11.3
